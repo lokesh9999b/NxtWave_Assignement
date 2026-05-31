@@ -17,6 +17,15 @@ export function createApp() {
   app.use(express.json());
   app.use(morgan("dev"));
 
+  app.get("/", (_req, res) => {
+    res.json({
+      name: "Team Task Tracker API",
+      version: "1.0.0",
+      docs: "/docs",
+      health: "/health"
+    });
+  });
+
   app.get("/health", (_req, res) => {
     res.json({ status: "ok" });
   });
