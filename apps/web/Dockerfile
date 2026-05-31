@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY apps/web/package*.json apps/web/
-RUN npm ci
+RUN npm install
 
 COPY apps/web apps/web
 WORKDIR /app/apps/web
@@ -18,6 +18,7 @@ WORKDIR /app/apps/web
 
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
 COPY --from=build /app/apps/web/.next/standalone ./
 COPY --from=build /app/apps/web/.next/static ./apps/web/.next/static
