@@ -1,0 +1,19 @@
+{
+  "name": "team-task-tracker",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/api",
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web",
+    "clean:web": "node -e \"require('fs').rmSync('apps/web/.next',{recursive:true,force:true})\"",
+    "dev:web:clean": "npm run clean:web && npm run dev:web",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "test": "npm run test -w apps/api",
+    "prisma:generate": "node apps/api/node_modules/prisma/build/index.js generate --schema apps/api/prisma/schema.prisma",
+    "prisma:migrate": "node apps/api/node_modules/prisma/build/index.js migrate dev --schema apps/api/prisma/schema.prisma"
+  }
+}

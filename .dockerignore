@@ -1,0 +1,11 @@
+node_modules
+apps/*/node_modules
+apps/api/dist
+apps/web/.next
+.env
+.git
+.gitignore
+*.log
+extracted_pages
+extract_pdf_images.py
+screencapture-docs-google-document-*.pdf
